@@ -1,7 +1,7 @@
 //贪吃蛇开发环境配置
 var gulp = require('gulp'),
     mincss = require('gulp-minify-css'),
-    minjs=require('gulp-jshint'),
+    minjs=require('gulp-jshint'),//js错误解析
     browserSync=require('browser-sync').create();
 
 gulp.task('css',function () {
