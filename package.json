@@ -1,0 +1,11 @@
+{
+  "name": "retrosnaker",
+  "version": "1.0.0",
+  "description": "\"\"\u001b[D用js实现贪吃蛇小游戏",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"\"\u001b[Dcoding crazy",
+  "license": "ISC"
+}
