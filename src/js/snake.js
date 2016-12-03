@@ -75,7 +75,8 @@ window.document.onkeydown = function (e) {
 
 //移动函数
 function move() {
-    entry.oldSnakeHead = entry.snakeHead[0];
+    //用于判断蛇是否是尾部
+    entry.oldSnakeHead = entry.snakeHead[entry.snakeHead.length - 1];
     switch (entry.keyValueGo) {
         case 37:
             entry.newSnakeHead = entry.snakeHead[0] - 1;
@@ -90,35 +91,33 @@ function move() {
             entry.newSnakeHead = entry.snakeHead[0] + entry.cols;
     }
     //保存当前食物坐标
-    entry.foodXY.x=document.getElementById(entry.foodId).offsetLeft;
-    entry.foodXY.y=document.getElementById(entry.foodId).offsetTop;
+    entry.foodXY.x = document.getElementById(entry.foodId).offsetLeft;
+    entry.foodXY.y = document.getElementById(entry.foodId).offsetTop;
     //保存当前蛇头坐标
-    entry.snakeHeadXY.x=document.getElementById(entry.newSnakeHead).offsetLeft;
-    entry.snakeHeadXY.y=document.getElementById(entry.newSnakeHead).offsetTop;
+    entry.snakeHeadXY.x = document.getElementById(entry.newSnakeHead).offsetLeft;
+    entry.snakeHeadXY.y = document.getElementById(entry.newSnakeHead).offsetTop;
     //如果蛇头吃到食物
-    if(entry.foodXY.x==entry.snakeHeadXY.x&&entry.foodXY.y==entry.snakeHeadXY.y){
-        // console.log(entry.newSnakeHead,entry.snakeHead[0])
+    if (entry.foodXY.x == entry.snakeHeadXY.x && entry.foodXY.y == entry.snakeHeadXY.y) {
         var newSnake = entry.snakeHead;
         newSnake.unshift(entry.newSnakeHead);//添加转角点为新蛇头
-        console.log(newSnake)
         for (var i = 0; i < newSnake.length; i++) {
             document.getElementById(newSnake[i]).className = "snake";
         }
-    }else{
-        console.log(entry.newSnakeHead,entry.snakeHead[0])
-        var oldSnake = entry.snakeHead;
-        oldSnake.pop();//删除蛇尾
-        var newSnake = oldSnake;
+    } else {
+        entry.snakeHead.pop();//删除蛇尾
+        var newSnake = entry.snakeHead;
         newSnake.unshift(entry.newSnakeHead);//添加转角点为新蛇头
         for (var i = 0; i < newSnake.length; i++) {
             document.getElementById(newSnake[i]).className = "snake"
         }
-        //判断方式不对导致
+        /**由于之前oldSnakeHead获取的是原数组中第一个值，所以每当判断的时候新数组的第二个值（也就是原数组的第一个值）
+         * 会添加“block”类，导致吃掉食物后食物还在原地的bug
+         * */
         if (entry.oldSnakeHead != entry.newSnakeHead)
-                document.getElementById(entry.oldSnakeHead).className = "block";
+            document.getElementById(entry.oldSnakeHead).className = "block";
     }
-    // clearInterval(entry.settime);
-    // entry.settime = setInterval(move, 1000)
+    clearInterval(entry.settime);
+    entry.settime = setInterval(move, 500)
 }
 
 //随机蛇头位置和食物的位置
