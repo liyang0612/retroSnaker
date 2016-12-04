@@ -1,9 +1,10 @@
+
 #snake-box{
 	position: relative;
 	background: #ccc;
 }
 .snake{
-	background: #f60 !important;
+	background: dodgerblue !important;
 	position: absolute;
 	width: 20px;
 	height: 20px;
@@ -20,4 +21,42 @@
 	width: 20px;
 	height: 20px;
 	position: absolute;
+}
+
+
+*:focus{
+	border: none;
+}
+body{
+	font-size: 18px;
+	font-weight: bold;
+	font-family: "Microsoft YaHei UI";
+	color: dodgerblue;
+}
+
+.content{
+	border: solid 1px transparent;
+	width: 600px;
+	margin: 50px auto;
+}
+#start,#level{
+	width: 120px;
+	height: 40px;
+	background: #f4f4f4;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Microsoft YaHei UI";
+	color: dodgerblue;
+}
+
+#start:hover,#level:hover{
+	background: #e4e4e4;
+}
+
+.info{
+	margin: 30px 0;
+	text-align: center;
 }
