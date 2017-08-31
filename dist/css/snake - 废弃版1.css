@@ -1,1 +1,0 @@
-body{background:#e4e4e4}.game-box{position:relative;width:900px;height:600px;margin:100px auto;background:#ccc;border:1px solid #999;border-radius:10px}.game-snake{position:absolute;top:100px;left:100px;height:20px}.game-block{width:20px;height:20px;float:left;background:#c71585}.game-snake .down-turn,.tranY>.tranY-c{clear:both;float:right}

@@ -13,7 +13,7 @@
   directionControl();
 
   function application() {
-    timer = setTimeout(application, 300)
+    timer = setTimeout(application, 200);
     clearCanvas();
     drawCanvas(0, 0);
     moveSnake();
@@ -33,7 +33,7 @@
 
   // 小方格
   function drawPoint(x, y) {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "#333";
     ctx.fillRect(x, y, snakeSize, snakeSize);
     ctx.strokeStyle = "#fff";
     ctx.strokeRect(x, y, snakeSize, snakeSize);
